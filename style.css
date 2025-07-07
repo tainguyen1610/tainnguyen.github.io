@@ -6,92 +6,36 @@
   font-family: 'Poppins', sans-serif;
 }
 .main{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Nếu có ảnh thì dùng dòng dưới */
-  /* background-image: url(images/pastel-bg.jpg); */
-  /* Nếu không có ảnh thì dùng gradient */
-  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%, #a1c4fd 100%);
-  background-position: center;
-  background-size: cover;
+  background: linear-gradient(120deg, #d0e8f2 0%, #f3d1f4 100%);
 }
+
 .profile-card{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 400px;
-  width: 100%;
-  border-radius: 25px;
-  padding: 30px;
-  border: 1px solid #ffffff40;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  border: 1px solid #ffffff50;
+  background-color: rgba(255, 255, 255, 0.9); /* Thêm nền nhẹ dịu */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
-.image{
-  position: relative;
-  height: 150px;
-  width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .image .profile-pic{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-  background: #eee;
+  background: #f0f0f0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-.image span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #333;
-  font-size: 18px;
-  display: none; /* Chỉ hiện khi ảnh lỗi */
-}
-.data{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 15px;
-}
+
 .data h2{
-  font-size: 33px;
-  font-weight: 600;
+  color: #333;
 }
+
 span{
-  font-size: 18px;
+  color: #666;
 }
-.row{
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-}
-.row .info{
-  text-align: center;
-  padding: 0 20px;
-}
-.buttons{
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-}
+
 .buttons .btn{
-  color: #fff;
-  text-decoration: none;
-  margin: 0 20px;
-  padding: 8px 25px;
-  border-radius: 25px;
-  font-size: 18px;
-  white-space: nowrap;
-  background: linear-gradient(to left, #33ccff 0%, #ff99cc 100%);
+  background: linear-gradient(to left, #a1c4fd 0%, #c2e9fb 100%);
+  color: #333;
+  border: 1px solid #a1c4fd;
 }
+
 .buttons .btn:hover{
-  box-shadow: inset 0 5px 20px rgba(0,0,0,0.4);
+  box-shadow: inset 0 5px 20px rgba(0,0,0,0.2);
 }
+
 fonts.googleapis.com
