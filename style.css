@@ -5,29 +5,28 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.main{
+.main {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Nếu có ảnh thì dùng dòng dưới */
-  /* background-image: url(images/pastel-bg.jpg); */
-  /* Nếu không có ảnh thì dùng gradient */
-  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%, #a1c4fd 100%);
-  background-position: center;
-  background-size: cover;
 }
-.profile-card{
+
+.profile-card {
+  background-color: #fff8f0; /* Màu trong khác nền ngoài */
+  border: 1px solid #f0e6dd;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 400px;
-  width: 100%;
-  border-radius: 25px;
-  padding: 30px;
-  border: 1px solid #ffffff40;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 .image{
   position: relative;
