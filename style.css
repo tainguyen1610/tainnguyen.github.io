@@ -6,11 +6,10 @@
   font-family: 'Poppins', sans-serif;
 }
 .main {
-background: linear-gradient(120deg, #fad0c4 0%, #ffd1ff 100%);
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
   background-position: center;
   background-size: cover;
 }
-
 .profile-card {
   background-color: #fefefe;
   border: 1px solid #e6e6e6;
