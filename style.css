@@ -274,23 +274,28 @@ body {
   height: 100%;
   position: absolute;
   border-radius: 7px;
-  background: #fff;
   pointer-events: none;
   backface-visibility: hidden;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   transition: transform 0.25s linear;
 }
 
+/* Nền màu đen cho mặt trước */
+.card .front-view {
+  background-color: #000;
+}
+
 .card .front-view img {
   width: 19px;
 }
 
-.card .back-view img {
-  max-width: 45px;
+.card .back-view {
+  background-color: #fff;
+  transform: rotateY(-180deg);
 }
 
-.card .back-view {
-  transform: rotateY(-180deg);
+.card .back-view img {
+  max-width: 45px;
 }
 
 .card.flip .back-view {
@@ -330,3 +335,4 @@ body {
     max-width: 35px;
   }
 }
+
