@@ -1,14 +1,3 @@
-/* ====== IMPORT GOOGLE FONTS ====== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-/* ====== RESET & DEFAULT ====== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Inter", "Poppins", sans-serif;
   display: flex;
@@ -227,18 +216,10 @@ body {
 
 /* ====== MEMORY CARD GAME ====== */
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
   padding: 25px;
-  background: radial-gradient(circle at center, #001f2f, #000); /* nền gradient xanh đen */
-  box-shadow: 0 0 25px #00ffff55, 0 0 50px #00ffff22;
   border-radius: 10px;
-  border: 2px solid #00ffff;
+  background: #F8F8F8;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .cards, .card, .view {
