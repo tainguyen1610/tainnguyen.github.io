@@ -1,58 +1,76 @@
-/* ====== IMPORT GOOGLE FONTS ====== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
 
-/* ====== RESET & DEFAULT ====== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
 }
 
 body {
-  font-family: "Inter", "Poppins", sans-serif;
+  background-color: #111;
+  color: #eee;
+  scroll-behavior: smooth;
+}
+
+.section-title {
+  text-align: center;
+  color: #ff003c;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav {
+  background-color: #1a1a1a;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+nav a {
+  color: #ff003c;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  text-shadow: 0 0 10px #ff003c;
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  background: linear-gradient(#ECEFFE, #C5CFFC);
-  padding: 20px;
-}
-
-/* ====== PROFILE CARD ====== */
-.main {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: 'Poppins', sans-serif;
-  padding: 40px 0;
+  background-image: url('images/back.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 20px;
 }
 
 .profile-card {
-  background-color: #fff8f0;
-  border: 1px solid #f0e6dd;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  padding: 30px;
-  max-width: 400px;
-  width: 100%;
+  background-color: #000;
+  border: 1px solid #ff003c;
+  box-shadow: 0 0 20px #ff003c55, 0 0 30px #ff003c22;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 25px;
+  padding: 30px;
 }
 
 .image {
-  position: relative;
   height: 150px;
   width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .image .profile-pic {
@@ -60,52 +78,76 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-  background: #eee;
+  box-shadow: 0 0 15px #ff003caa;
 }
 
 .data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   margin-top: 15px;
 }
 
 .data h2 {
   font-size: 33px;
   font-weight: 600;
+  color: #ff003c;
 }
 
-.data span {
+.data span,
+.data p,
+.row .info h3,
+.row .info span {
+  color: #ccc;
   font-size: 18px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.row .info {
+  text-align: center;
+  padding: 0 20px;
 }
 
 .buttons {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   margin-top: 30px;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
+
 
 .buttons .btn {
   color: #fff;
   text-decoration: none;
-  margin: 0 20px;
-  padding: 8px 25px;
+  margin: 0;
+  padding: 10px 25px;
   border-radius: 25px;
-  font-size: 18px;
-  white-space: nowrap;
-  background: linear-gradient(to left, #33ccff 0%, #ff99cc 100%);
+  font-size: 16px;
+  background: linear-gradient(to right, #ff003c, #550000);
+  box-shadow: 0 0 10px #ff003c88;
   transition: 0.3s;
 }
 
+
 .buttons .btn:hover {
-  box-shadow: inset 0 5px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 0 20px #ff003c, 0 0 25px #ff003c;
+  transform: scale(1.05);
 }
 
-/* ====== CARD SLIDER ====== */
+.buttons .btn i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
 .card-wrapper {
   max-width: 1100px;
-  margin: 40px 60px;
+  margin: 0 auto 35px;
   padding: 20px 10px;
   overflow: hidden;
 }
@@ -114,24 +156,19 @@ body {
   list-style: none;
 }
 
-.card-list .card-item .card-link {
+.card-list .card-link {
   display: block;
-  background: #fff;
+  background: #1a1a1a;
   padding: 18px;
   user-select: none;
   border-radius: 12px;
   text-decoration: none;
-  border: 2px solid transparent;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-  transition: 0.2s ease;
+  border: 2px solid #ff003c;
+  color: #fff;
 }
 
-.card-list .card-item .card-link:hover {
-  border-color: #5372F0;
-}
-
-.card-list .card-item .card-link:active {
-  cursor: grabbing;
+.card-list .card-link:hover {
+  box-shadow: 0 0 10px #ff003c88;
 }
 
 .card-list .card-link .card-image {
@@ -142,7 +179,8 @@ body {
 }
 
 .card-list .card-link .badge {
-  width: fit-content;
+  background: #550000;
+  color: #ff003c;
   padding: 8px 16px;
   font-size: 0.95rem;
   border-radius: 50px;
@@ -150,33 +188,8 @@ body {
   margin: 16px 0 18px;
 }
 
-.badge-designer {
-  color: #B22485;
-  background: #F7DFF5;
-}
-
-.badge-developer {
-  color: #5372F0;
-  background: #DDE4FF;
-}
-
-.badge-marketer {
-  color: #B25A2B;
-  background: #FFE3D2;
-}
-
-.badge-gamer {
-  color: #205C20;
-  background: #D6F8D6;
-}
-
-.badge-editor {
-  color: #856404;
-  background: #fff3cd;
-}
-
 .card-list .card-link .card-title {
-  color: #000;
+  color: #ff003c;
   font-size: 1.19rem;
   font-weight: 600;
 }
@@ -184,121 +197,110 @@ body {
 .card-list .card-link .card-button {
   height: 35px;
   width: 35px;
-  color: #5372F0;
+  color: #ff003c;
   margin: 30px 0 5px;
   background: none;
   cursor: pointer;
   border-radius: 50%;
-  border: 2px solid #5372F0;
+  border: 2px solid #ff003c;
   transform: rotate(-45deg);
   transition: 0.4s ease;
 }
 
 .card-list .card-link:hover .card-button {
   color: #fff;
-  background: #5372F0;
+  background: #ff003c;
 }
 
 .card-wrapper .swiper-pagination-bullet {
   height: 13px;
   width: 13px;
   opacity: 0.5;
-  background: #5372F0;
+  background: #ff003c;
 }
 
 .card-wrapper .swiper-pagination-bullet-active {
   opacity: 1;
+  background: #ff0000;
 }
 
-.card-wrapper .swiper-slide-button {
-  color: #5372F0;
-  margin-top: -35px;
-}
-
-@media (max-width: 768px) {
-  .card-wrapper {
-    margin: 0 10px 25px;
-  }
-
-  .card-wrapper .swiper-slide-button {
-    display: none;
-  }
-}
-
-/* ====== MEMORY CARD GAME ====== */
+/* Container của phần game */
 .wrapper {
-  padding: 25px;
-  border-radius: 10px;
-  background: #F8F8F8;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.cards, .card, .view {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 25px;
+  background: #111;
+  box-shadow: 0 10px 30px rgba(255,0,60,0.2);
+  border-radius: 10px;
 }
 
+/* Grid chứa các card */
 .cards {
-  height: 400px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 90px);
+  grid-template-rows: repeat(4, 90px);
+  gap: 10px;
   width: 400px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  height: 400px;
 }
 
+/* Mỗi card */
 .cards .card {
   cursor: pointer;
-  list-style: none;
-  user-select: none;
   position: relative;
   perspective: 1000px;
-  transform-style: preserve-3d;
-  height: calc(100% / 4 - 10px);
-  width: calc(100% / 4 - 10px);
+  width: 90px;
+  height: 90px;
 }
 
-.card.shake {
-  animation: shake 0.35s ease-in-out;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-13px); }
-  40% { transform: translateX(13px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(8px); }
-}
-
+/* Mặt trước và mặt sau của card */
 .card .view {
   width: 100%;
   height: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
   border-radius: 7px;
+  background: #1a1a1a;
   pointer-events: none;
   backface-visibility: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
   transition: transform 0.25s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Nền màu đen cho mặt trước */
-.card .view {
-  background: #222;
-  border: 2px solid #ff003c;
-}
-
+/* Ảnh mặt trước */
 .card .front-view img {
-  width: 19px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(29%) sepia(93%) 
+          saturate(7500%) hue-rotate(340deg) brightness(90%) contrast(120%);
 }
 
+/* Ảnh mặt sau */
+.card .back-view img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Mặt sau ban đầu bị lật */
 .card .back-view {
-  background-color: #fff;
   transform: rotateY(-180deg);
 }
 
-.card .back-view img {
-  max-width: 45px;
-}
-
+/* Khi flip thì hiển thị mặt sau, ẩn mặt trước */
 .card.flip .back-view {
   transform: rotateY(0);
 }
@@ -307,33 +309,16 @@ body {
   transform: rotateY(180deg);
 }
 
-@media screen and (max-width: 700px) {
-  .cards {
-    height: 350px;
-    width: 350px;
-  }
-
-  .card .front-view img {
-    width: 17px;
-  }
-
-  .card .back-view img {
-    max-width: 40px;
-  }
+/* Hiệu ứng shake khi không khớp */
+.card.shake .front-view,
+.card.shake .back-view {
+  animation: shake 0.35s;
 }
 
-@media screen and (max-width: 530px) {
-  .cards {
-    height: 300px;
-    width: 300px;
-  }
-
-  .card .front-view img {
-    width: 15px;
-  }
-
-  .card .back-view img {
-    max-width: 35px;
-  }
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
-
