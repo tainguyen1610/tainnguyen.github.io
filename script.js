@@ -1,116 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card Slider, Profile & Memory Game</title>
+// === Card Slider (Swiper) ===
+new Swiper('.card-wrapper', {
+  loop: true,
+  spaceBetween: 30,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 2
+    },
+    1024: {
+      slidesPerView: 3
+    }
+  }
+});
 
-  <!-- Google Material Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+// === Memory Card Game ===
+const cards = document.querySelectorAll(".card");
 
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+let matched = 0;
+let cardOne, cardTwo;
+let disableDeck = false;
 
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+function flipCard({ target: clickedCard }) {
+  if (cardOne !== clickedCard && !disableDeck) {
+    clickedCard.classList.add("flip");
+    if (!cardOne) {
+      return cardOne = clickedCard;
+    }
+    cardTwo = clickedCard;
+    disableDeck = true;
+    let cardOneImg = cardOne.querySelector(".back-view img").src,
+        cardTwoImg = cardTwo.querySelector(".back-view img").src;
+    matchCards(cardOneImg, cardTwoImg);
+  }
+}
 
-  <!-- Profile Card Section -->
-  <section class="main">
-    <div class="profile-card">
-      <div class="image">
-        <img src="cat-anh-long-ngan-1-3.jpg" alt="Ảnh đại diện" class="profile-pic">
-      </div>
-      <div class="data">
-        <h2>Nguyễn Tấn Tài</h2>
-        <span>Developer & Designer</span>
-      </div>
-      <div class="buttons">
-        <a href="https://www.instagram.com/" class="btn" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/" class="btn" target="_blank">Facebook</a>
-      </div>
-    </div>
-  </section>
+function matchCards(img1, img2) {
+  if (img1 === img2) {
+    matched++;
+    if (matched === 8) {
+      setTimeout(() => {
+        shuffleCard();
+      }, 1000);
+    }
+    cardOne.removeEventListener("click", flipCard);
+    cardTwo.removeEventListener("click", flipCard);
+    cardOne = cardTwo = "";
+    disableDeck = false;
+  } else {
+    setTimeout(() => {
+      cardOne.classList.add("shake");
+      cardTwo.classList.add("shake");
+    }, 400);
+    setTimeout(() => {
+      cardOne.classList.remove("shake", "flip");
+      cardTwo.classList.remove("shake", "flip");
+      cardOne = cardTwo = "";
+      disableDeck = false;
+    }, 1200);
+  }
+}
 
-  <!-- Card Slider Section -->
-  <div class="container swiper">
-    <div class="card-wrapper">
-      <ul class="card-list swiper-wrapper">
-        <li class="card-item swiper-slide">
-          <a href="#" class="card-link">
-            <img src="bainao.jpg" alt="Card Image" class="card-image">
-            <p class="badge badge-designer">bainao</p>
-            <h2 class="card-title">Thường xuyên xuất hiện chịu chứng khó đỡ phát ra âm thanh lạ và có nhiều biểu hiện của sự ngáo đá có thể là do tác nhân chính là nghiện game</h2>
-            <button class="card-button material-symbols-rounded">arrow_forward</button>
-          </a>
-        </li>
-        <li class="card-item swiper-slide">
-          <a href="#" class="card-link">
-            <img src="benhiemngheo.jpg" alt="Card Image" class="card-image">
-            <p class="badge badge-developer">benhiemngheo</p>
-            <h2 class="card-title">Căn bệnh khó chữa trị thường tìm ẩn nguy cơ bùng nổ có thể chém bất kì thằng nào khi anh ấy không vừa mắt có thể nói là hết thuốc chữa</h2>
-            <button class="card-button material-symbols-rounded">arrow_forward</button>
-          </a>
-        </li>
-        <li class="card-item swiper-slide">
-          <a href="#" class="card-link">
-            <img src="bienthai.jpg" alt="Card Image" class="card-image">
-            <p class="badge badge-marketer">bienthai</p>
-            <h2 class="card-title">Hoạt động về đêm thường có biểu hiện trần truồng đi long nhong khắp nơi , buổi sáng thì thường phat ra những âm thanh lạ </h2>
-            <button class="card-button material-symbols-rounded">arrow_forward</button>
-          </a>
-        </li>
-        <li class="card-item swiper-slide">
-          <a href="#" class="card-link">
-            <img src="gymchua.jpg" alt="Card Image" class="card-image">
-            <p class="badge badge-gamer">gymchua</p>
-            <h2 class="card-title">Có thể nói ca này là nặng nhất "ngu hết thuốc chữa" tập gym có thể to về cơ bắp nhưng não thì tỉ lệ nghịch với ngoại hình</h2>
-            <button class="card-button material-symbols-rounded">arrow_forward</button>
-          </a>
-        </li>
-        <li class="card-item swiper-slide">
-          <a href="#" class="card-link">
-            <img src="tamthanphanliet.jpg" alt="Card Image" class="card-image">
-            <p class="badge badge-editor">tamthanphanliet</p>
-            <h2 class="card-title">Vip pro player siêu cấp nghiện net có thể lên cơn nghiện bất cứ lúc  nào và có thể nghỉ học thường xuyên để chơi net</h2>
-            <button class="card-button material-symbols-rounded">arrow_forward</button>
-          </a>
-        </li>
-      </ul>
+function shuffleCard() {
+  matched = 0;
+  disableDeck = false;
+  cardOne = cardTwo = "";
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8,
+             1, 2, 3, 4, 5, 6, 7, 8];
+  arr.sort(() => Math.random() > 0.5 ? 1 : -1);
+  cards.forEach((card, i) => {
+    card.classList.remove("flip");
+    let imgTag = card.querySelector(".back-view img");
+    imgTag.src = `images/img-${arr[i]}.png`;
+    card.addEventListener("click", flipCard);
+  });
+}
 
-      <div class="swiper-pagination"></div>
-      <div class="swiper-slide-button swiper-button-prev"></div>
-      <div class="swiper-slide-button swiper-button-next"></div>
-    </div>
-  </div>
-
-  <!-- Memory Card Game Section -->
-  <section class="memory-game">
-    <div class="wrapper">
-      <ul class="cards">
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-1.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-6.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-3.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-2.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-1.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-5.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-2.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-6.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-3.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-4.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-5.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-4.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-7.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-8.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-7.png" alt="card-img"></div></li>
-        <li class="card"><div class="view front-view"><img src="images/que_icon.svg" alt="icon"></div><div class="view back-view"><img src="images/img-8.png" alt="card-img"></div></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+// Initial shuffle and event listeners
+shuffleCard();
+cards.forEach(card => {
+  card.addEventListener("click", flipCard);
+});
