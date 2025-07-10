@@ -281,10 +281,10 @@ body {
 }
 
 /* Nền màu đen cho mặt trước */
-.card .front-view {
-  background-color: #000;
+.card .view {
+  background: #222;
+  border: 2px solid #ff003c;
 }
-
 
 .card .front-view img {
   width: 19px;
