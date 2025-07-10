@@ -1,76 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
+/* ====== IMPORT GOOGLE FONTS ====== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+/* ====== RESET & DEFAULT ====== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Orbitron', sans-serif;
 }
 
 body {
-  background-color: #111;
-  color: #eee;
-  scroll-behavior: smooth;
-}
-
-.section-title {
-  text-align: center;
-  color: #ff003c;
-  font-size: 36px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-nav {
-  background-color: #1a1a1a;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-}
-
-nav a {
-  color: #ff003c;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-nav a:hover {
-  text-shadow: 0 0 10px #ff003c;
-}
-
-.main {
-  width: 100%;
-  min-height: 100vh;
+  font-family: "Inter", "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-image: url('images/back.gif');
-  background-size: cover;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: linear-gradient(#ECEFFE, #C5CFFC);
+  padding: 20px;
+}
+
+/* ====== PROFILE CARD ====== */
+.main {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   background-position: center;
-  background-repeat: no-repeat;
-  padding: 60px 20px;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 40px 0;
 }
 
 .profile-card {
-  background-color: #000;
-  border: 1px solid #ff003c;
-  box-shadow: 0 0 20px #ff003c55, 0 0 30px #ff003c22;
+  background-color: #fff8f0;
+  border: 1px solid #f0e6dd;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 400px;
-  width: 100%;
-  border-radius: 25px;
-  padding: 30px;
 }
 
 .image {
+  position: relative;
   height: 150px;
   width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .image .profile-pic {
@@ -78,76 +60,52 @@ nav a:hover {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 0 15px #ff003caa;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  background: #eee;
 }
 
 .data {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 15px;
 }
 
 .data h2 {
   font-size: 33px;
   font-weight: 600;
-  color: #ff003c;
 }
 
-.data span,
-.data p,
-.row .info h3,
-.row .info span {
-  color: #ccc;
+.data span {
   font-size: 18px;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.row .info {
-  text-align: center;
-  padding: 0 20px;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
   margin-top: 30px;
-  flex-wrap: nowrap;
-  gap: 20px;
 }
-
 
 .buttons .btn {
   color: #fff;
   text-decoration: none;
-  margin: 0;
-  padding: 10px 25px;
+  margin: 0 20px;
+  padding: 8px 25px;
   border-radius: 25px;
-  font-size: 16px;
-  background: linear-gradient(to right, #ff003c, #550000);
-  box-shadow: 0 0 10px #ff003c88;
+  font-size: 18px;
+  white-space: nowrap;
+  background: linear-gradient(to left, #33ccff 0%, #ff99cc 100%);
   transition: 0.3s;
 }
 
-
 .buttons .btn:hover {
-  box-shadow: 0 0 20px #ff003c, 0 0 25px #ff003c;
-  transform: scale(1.05);
+  box-shadow: inset 0 5px 20px rgba(0,0,0,0.4);
 }
 
-.buttons .btn i {
-  margin-right: 8px;
-  font-size: 20px;
-}
-
+/* ====== CARD SLIDER ====== */
 .card-wrapper {
   max-width: 1100px;
-  margin: 0 auto 35px;
+  margin: 40px 60px;
   padding: 20px 10px;
   overflow: hidden;
 }
@@ -156,19 +114,24 @@ nav a:hover {
   list-style: none;
 }
 
-.card-list .card-link {
+.card-list .card-item .card-link {
   display: block;
-  background: #1a1a1a;
+  background: #fff;
   padding: 18px;
   user-select: none;
   border-radius: 12px;
   text-decoration: none;
-  border: 2px solid #ff003c;
-  color: #fff;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
 }
 
-.card-list .card-link:hover {
-  box-shadow: 0 0 10px #ff003c88;
+.card-list .card-item .card-link:hover {
+  border-color: #5372F0;
+}
+
+.card-list .card-item .card-link:active {
+  cursor: grabbing;
 }
 
 .card-list .card-link .card-image {
@@ -179,8 +142,7 @@ nav a:hover {
 }
 
 .card-list .card-link .badge {
-  background: #550000;
-  color: #ff003c;
+  width: fit-content;
   padding: 8px 16px;
   font-size: 0.95rem;
   border-radius: 50px;
@@ -188,8 +150,33 @@ nav a:hover {
   margin: 16px 0 18px;
 }
 
+.badge-designer {
+  color: #B22485;
+  background: #F7DFF5;
+}
+
+.badge-developer {
+  color: #5372F0;
+  background: #DDE4FF;
+}
+
+.badge-marketer {
+  color: #B25A2B;
+  background: #FFE3D2;
+}
+
+.badge-gamer {
+  color: #205C20;
+  background: #D6F8D6;
+}
+
+.badge-editor {
+  color: #856404;
+  background: #fff3cd;
+}
+
 .card-list .card-link .card-title {
-  color: #ff003c;
+  color: #000;
   font-size: 1.19rem;
   font-weight: 600;
 }
@@ -197,31 +184,45 @@ nav a:hover {
 .card-list .card-link .card-button {
   height: 35px;
   width: 35px;
-  color: #ff003c;
+  color: #5372F0;
   margin: 30px 0 5px;
   background: none;
   cursor: pointer;
   border-radius: 50%;
-  border: 2px solid #ff003c;
+  border: 2px solid #5372F0;
   transform: rotate(-45deg);
   transition: 0.4s ease;
 }
 
 .card-list .card-link:hover .card-button {
   color: #fff;
-  background: #ff003c;
+  background: #5372F0;
 }
 
 .card-wrapper .swiper-pagination-bullet {
   height: 13px;
   width: 13px;
   opacity: 0.5;
-  background: #ff003c;
+  background: #5372F0;
 }
 
 .card-wrapper .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #ff0000;
+}
+
+.card-wrapper .swiper-slide-button {
+  color: #5372F0;
+  margin-top: -35px;
+}
+
+@media (max-width: 768px) {
+  .card-wrapper {
+    margin: 0 10px 25px;
+  }
+
+  .card-wrapper .swiper-slide-button {
+    display: none;
+  }
 }
 /* Container của phần game */
 .wrapper {
