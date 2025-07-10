@@ -224,7 +224,8 @@ body {
     display: none;
   }
 }
-/* Container của phần game */
+
+/* ====== MEMORY CARD GAME ====== */
 .wrapper {
   display: flex;
   justify-content: center;
@@ -240,70 +241,66 @@ body {
   border: 2px solid #00ffff;
 }
 
-/* Grid chứa các card */
-.cards {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 90px);
-  grid-template-rows: repeat(4, 90px);
-  gap: 10px;
-  width: 400px;
-  height: 400px;
+.cards, .card, .view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Mỗi card */
+.cards {
+  height: 400px;
+  width: 400px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .cards .card {
   cursor: pointer;
+  list-style: none;
+  user-select: none;
   position: relative;
   perspective: 1000px;
-  width: 90px;
-  height: 90px;
+  transform-style: preserve-3d;
+  height: calc(100% / 4 - 10px);
+  width: calc(100% / 4 - 10px);
 }
 
-/* Mặt trước và mặt sau của card */
+.card.shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-13px); }
+  40% { transform: translateX(13px); }
+  60% { transform: translateX(-8px); }
+  80% { transform: translateX(8px); }
+}
+
 .card .view {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
   border-radius: 7px;
-  background: #1a1a1a;
-  border: 2px solid #00ffea;
-  box-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+  background: #fff;
   pointer-events: none;
   backface-visibility: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   transition: transform 0.25s linear;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-
-/* Ảnh mặt trước */
 .card .front-view img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(29%) sepia(93%) 
-          saturate(7500%) hue-rotate(340deg) brightness(90%) contrast(120%);
+  width: 19px;
 }
 
-/* Ảnh mặt sau */
 .card .back-view img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+  max-width: 45px;
 }
 
-/* Mặt sau ban đầu bị lật */
 .card .back-view {
   transform: rotateY(-180deg);
 }
 
-/* Khi flip thì hiển thị mặt sau, ẩn mặt trước */
 .card.flip .back-view {
   transform: rotateY(0);
 }
@@ -312,16 +309,32 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Hiệu ứng shake khi không khớp */
-.card.shake .front-view,
-.card.shake .back-view {
-  animation: shake 0.35s;
+@media screen and (max-width: 700px) {
+  .cards {
+    height: 350px;
+    width: 350px;
+  }
+
+  .card .front-view img {
+    width: 17px;
+  }
+
+  .card .back-view img {
+    max-width: 40px;
+  }
 }
 
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
+@media screen and (max-width: 530px) {
+  .cards {
+    height: 300px;
+    width: 300px;
+  }
+
+  .card .front-view img {
+    width: 15px;
+  }
+
+  .card .back-view img {
+    max-width: 35px;
+  }
 }
