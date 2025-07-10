@@ -270,14 +270,16 @@ nav a:hover {
   left: 0;
   border-radius: 7px;
   background: #1a1a1a;
+  border: 2px solid #00ffea;
+  box-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
   pointer-events: none;
   backface-visibility: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
   transition: transform 0.25s linear;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 /* Ảnh mặt trước */
 .card .front-view img {
