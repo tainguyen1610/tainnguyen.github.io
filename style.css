@@ -234,9 +234,10 @@ nav a:hover {
   max-width: 450px;
   margin: 0 auto;
   padding: 25px;
-  background: #111;
-  box-shadow: 0 10px 30px rgba(255,0,60,0.2);
+  background: radial-gradient(circle at center, #001f2f, #000); /* nền gradient xanh đen */
+  box-shadow: 0 0 25px #00ffff55, 0 0 50px #00ffff22;
   border-radius: 10px;
+  border: 2px solid #00ffff;
 }
 
 /* Grid chứa các card */
