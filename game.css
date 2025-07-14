@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Container của phần game */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 25px;
+  background: radial-gradient(circle at center, #001f2f, #000); /* nền gradient xanh đen */
+  box-shadow: 0 0 25px #00ffff55, 0 0 50px #00ffff22;
+  border-radius: 10px;
+  border: 2px solid #00ffff;
+}
+
+/* Grid chứa các card */
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 90px);
+  grid-template-rows: repeat(4, 90px);
+  gap: 10px;
+  width: 400px;
+  height: 400px;
+}
+
+/* Mỗi card */
+.cards .card {
+  cursor: pointer;
+  position: relative;
+  perspective: 1000px;
+  width: 90px;
+  height: 90px;
+}
+
+/* Mặt trước và mặt sau của card */
+.card .view {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 7px;
+  background: #1a1a1a;
+  border: 2px solid #00ffea;
+  box-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+  pointer-events: none;
+  backface-visibility: hidden;
+  transition: transform 0.25s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ảnh mặt trước */
+.card .front-view img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(29%) sepia(93%) 
+          saturate(7500%) hue-rotate(340deg) brightness(90%) contrast(120%);
+}
+
+/* Ảnh mặt sau */
+.card .back-view img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Mặt sau ban đầu bị lật */
+.card .back-view {
+  transform: rotateY(-180deg);
+}
+
+/* Khi flip thì hiển thị mặt sau, ẩn mặt trước */
+.card.flip .back-view {
+  transform: rotateY(0);
+}
+
+.card.flip .front-view {
+  transform: rotateY(180deg);
+}
+
+/* Hiệu ứng shake khi không khớp */
+.card.shake .front-view,
+.card.shake .back-view {
+  animation: shake 0.35s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
