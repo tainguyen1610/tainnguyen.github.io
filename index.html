@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main Menu</title>
+  <title>Menu Chính</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
 </head>
@@ -28,13 +28,13 @@
       <div class="sidebar-content">
         <form class="search-form">
           <span class="material-symbols-rounded">search</span>
-          <input type="search" placeholder="Search..." required />
+          <input type="search" placeholder="Tìm kiếm..." required />
         </form>
 
-        <!-- Menu items -->
+        <!-- Danh sách menu -->
         <ul class="menu-list">
           <li class="menu-item">
-            <a href="#" class="menu-link active" onclick="loadPage('profile.html')">
+            <a href="#" class="menu-link" onclick="loadPage('profile.html')">
               <span class="material-symbols-rounded">person</span>
               <span class="menu-label">Thông tin cá nhân</span>
             </a>
@@ -43,6 +43,12 @@
             <a href="#" class="menu-link" onclick="loadPage('game.html')">
               <span class="material-symbols-rounded">sports_esports</span>
               <span class="menu-label">Trò chơi lật thẻ</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link" onclick="loadPage('draw.html')">
+              <span class="material-symbols-rounded">gesture</span>
+              <span class="menu-label">Ứng dụng vẽ</span>
             </a>
           </li>
         </ul>
@@ -61,17 +67,20 @@
       </div>
     </aside>
 
-    <!-- Main content area with iframe -->
+    <!-- Nội dung chính với iframe -->
     <div class="main-content">
       <iframe id="contentFrame" src="profile.html" frameborder="0" width="100%" height="1000px"></iframe>
     </div>
   </div>
 
+  <!-- Script load trang con -->
   <script>
     function loadPage(page) {
       document.getElementById("contentFrame").src = page;
     }
   </script>
+
+  <!-- Script tùy chọn của bạn -->
   <script src="script.js"></script>
 </body>
 </html>
