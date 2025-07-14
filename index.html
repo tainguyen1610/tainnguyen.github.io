@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu Chính</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Liên kết đến file CSS mẹ -->
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- Font icon từ Google -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
 </head>
 <body>
@@ -26,6 +30,7 @@
       </div>
 
       <div class="sidebar-content">
+        <!-- Ô tìm kiếm -->
         <form class="search-form">
           <span class="material-symbols-rounded">search</span>
           <input type="search" placeholder="Tìm kiếm..." required />
@@ -73,14 +78,14 @@
     </div>
   </div>
 
-  <!-- Script load trang con -->
+  <!-- Script chuyển trang con -->
   <script>
     function loadPage(page) {
       document.getElementById("contentFrame").src = page;
     }
   </script>
 
-  <!-- Script tùy chọn của bạn -->
+  <!-- Script chính -->
   <script src="script.js"></script>
 </body>
 </html>
