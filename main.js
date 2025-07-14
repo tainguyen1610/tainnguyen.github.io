@@ -8,7 +8,11 @@ const menuLinks = document.querySelectorAll(".menu-link");
 // Updates the theme icon based on current theme and sidebar state
 const updateThemeIcon = () => {
   const isDark = document.body.classList.contains("dark-theme");
-  themeIcon.textContent = sidebar.classList.contains("collapsed") ? (isDark ? "light_mode" : "dark_mode") : "dark_mode";
+  themeIcon.textContent = sidebar.classList.contains("collapsed")
+    ? isDark
+      ? "light_mode"
+      : "dark_mode"
+    : "dark_mode";
 };
 
 // Apply dark theme if saved or system prefers, then update icon
@@ -44,3 +48,24 @@ searchForm.addEventListener("click", () => {
 
 // Expand sidebar by default on large screens
 if (window.innerWidth > 768) sidebar.classList.remove("collapsed");
+
+// Highlight active menu link based on iframe content
+const contentFrame = document.getElementById("contentFrame");
+const menuItems = document.querySelectorAll(".menu-item");
+
+function setActiveMenu(linkHref) {
+  menuItems.forEach((item) => {
+    item.classList.remove("active");
+    const link = item.querySelector(".menu-link");
+    if (link && link.getAttribute("onclick")?.includes(linkHref)) {
+      item.classList.add("active");
+    }
+  });
+}
+
+function loadPage(page) {
+  contentFrame.src = page;
+  setActiveMenu(page);
+}
+
+window.loadPage = loadPage;
