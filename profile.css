@@ -7,16 +7,15 @@
   font-family: 'Poppins', sans-serif;
 }
 
-html, body {
+body, html {
   height: 100%;
 }
 
 .main {
-  width: 100%;
-  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
   background: linear-gradient(135deg, #e0f7fa, #fce4ec);
 }
 
@@ -28,19 +27,18 @@ html, body {
   width: 100%;
   border-radius: 25px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid #e0d6ff;
   box-shadow: 0 8px 25px rgba(122, 107, 207, 0.25);
   backdrop-filter: blur(10px);
 }
 
 .image {
-  position: relative;
   height: 150px;
   width: 150px;
 }
 
-.image .profile-pic {
+.profile-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -73,17 +71,17 @@ html, body {
   margin-top: 30px;
 }
 
-.row .info {
+.info {
   text-align: center;
   padding: 0 20px;
 }
 
-.row .info h3 {
+.info h3 {
   font-weight: 500;
   color: #333;
 }
 
-.row .info span {
+.info span {
   font-size: 16px;
   font-weight: bold;
   color: #444;
@@ -95,7 +93,7 @@ html, body {
   margin-top: 30px;
 }
 
-.buttons .btn {
+.btn {
   color: #fff;
   text-decoration: none;
   margin: 0 10px;
@@ -106,7 +104,7 @@ html, body {
   transition: 0.3s ease;
 }
 
-.buttons .btn:hover {
+.btn:hover {
   box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
