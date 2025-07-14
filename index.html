@@ -3,98 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu Chính</title>
-
-  <!-- Liên kết đến file CSS mẹ -->
-  <link rel="stylesheet" href="main.css" />
-
-  <!-- Font icon từ Google -->
+  <title>Dashboard Profile</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="site-nav">
-    <button class="sidebar-toggle">
-      <span class="material-symbols-rounded">menu</span>
-    </button>
-    <h2 class="site-title">My Profile:</h2>
-  </nav>
-
   <div class="container">
     <!-- Sidebar -->
-    <aside class="sidebar collapsed">
-      <div class="sidebar-header">
-        <img src="logo.png" alt="Logo" class="header-logo" />
-        <button class="sidebar-toggle">
-          <span class="material-symbols-rounded">chevron_left</span>
-        </button>
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" />
       </div>
-
-      <div class="sidebar-content">
-        <!-- Ô tìm kiếm -->
-        <form class="search-form">
-          <span class="material-symbols-rounded">search</span>
-          <input type="search" placeholder="Tìm kiếm..." required />
-        </form>
-
-        <!-- Danh sách menu -->
-        <ul class="menu-list">
-          <li class="menu-item active">
-            <a href="#" class="menu-link" onclick="loadPage('profile.html')">
-              <span class="material-symbols-rounded">person</span>
-              <span class="menu-label">Thông tin cá nhân</span>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="#" class="menu-link" onclick="loadPage('game.html')">
-              <span class="material-symbols-rounded">sports_esports</span>
-              <span class="menu-label">Trò chơi lật thẻ</span>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="#" class="menu-link" onclick="loadPage('draw.html')">
-              <span class="material-symbols-rounded">gesture</span>
-              <span class="menu-label">Ứng dụng vẽ</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="sidebar-footer">
-        <button class="theme-toggle">
-          <div class="theme-label">
-            <span class="theme-icon material-symbols-rounded">dark_mode</span>
-            <span class="theme-text">Dark Mode</span>
-          </div>
-          <div class="theme-toggle-track">
-            <div class="theme-toggle-indicator"></div>
-          </div>
-        </button>
-      </div>
+      <form class="search-box">
+        <span class="material-symbols-rounded">search</span>
+        <input type="text" placeholder="Search..." />
+      </form>
+      <ul class="nav-list">
+        <li class="active"><span class="material-symbols-rounded">dashboard</span> Dashboard</li>
+        <li><span class="material-symbols-rounded">sports_esports</span> Game Card</li>
+        <li><span class="material-symbols-rounded">gesture</span> Draw</li>
+        <li><span class="material-symbols-rounded">favorite</span> Favourites</li>
+        <li><span class="material-symbols-rounded">inventory</span> Products</li>
+        <li><span class="material-symbols-rounded">group</span> Customers</li>
+        <li><span class="material-symbols-rounded">settings</span> Settings</li>
+      </ul>
     </aside>
 
-    <!-- Nội dung chính với iframe -->
-    <div class="main-content">
-      <div class="profile-header">
-        <iframe id="contentFrame" src="profile.html" frameborder="0" width="100%" height="1000px"></iframe>
+    <!-- Main content -->
+    <main class="main">
+      <h2>My Profile:</h2>
+      <div class="profile-card">
+        <img src="gojo.png" alt="Avatar" class="avatar" />
+        <h3>Gojo Satoru</h3>
+        <p>Developer & Designer</p>
+        <div class="stats">
+          <div><strong>12tr</strong><br>Following</div>
+          <div><strong>2tr</strong><br>Followers</div>
+          <div><strong>209</strong><br>Project</div>
+        </div>
+        <div class="buttons">
+          <button class="message-btn">Message</button>
+          <button class="follow-btn">Follow Me</button>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
-
-  <!-- Script chuyển trang con -->
-  <script>
-    function loadPage(page) {
-      document.getElementById("contentFrame").src = page;
-
-      // Highlight active menu item
-      document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
-      const link = [...document.querySelectorAll('.menu-link')].find(l => l.getAttribute('onclick').includes(page));
-      if (link) link.parentElement.classList.add('active');
-    }
-  </script>
-
-  <!-- Script chính -->
-  <script src="main.js"></script>
-  <script src="profile.js"></script>
 </body>
 </html>
