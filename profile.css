@@ -1,108 +1,24 @@
+/* Importing Google fonts - Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-  font-family: "Inter", sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   min-height: 100vh;
   background: linear-gradient(#ECEFFE, #C5CFFC);
-  overflow-x: hidden;
 }
 
-.main {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  padding: 50px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Poppins', sans-serif;
-}
-
-.profile-card {
-  background-color: #fff8f0;
-  border: 1px solid #f0e6dd;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  padding: 30px;
-  max-width: 400px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.image {
-  position: relative;
-  height: 150px;
-  width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image .profile-pic {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-  background: #eee;
-}
-
-.data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 15px;
-}
-
-.data h2 {
-  font-size: 33px;
-  font-weight: 600;
-}
-
-.data span {
-  font-size: 18px;
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.buttons .btn {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 20px;
-  padding: 8px 25px;
-  border-radius: 25px;
-  font-size: 18px;
-  white-space: nowrap;
-  background: linear-gradient(to left, #33ccff 0%, #ff99cc 100%);
-  transition: 0.3s;
-}
-
-.buttons .btn:hover {
-  box-shadow: inset 0 5px 20px rgba(0,0,0,0.4);
-}
-
-/* Slider */
 .card-wrapper {
   max-width: 1100px;
-  margin: 30px auto;
+  margin: 0 60px 35px;
   padding: 20px 10px;
   overflow: hidden;
 }
@@ -123,39 +39,59 @@ body {
   transition: 0.2s ease;
 }
 
-.card-link:hover {
+.card-list .card-item .card-link:active {
+  cursor: grabbing;
+}
+
+.card-list .card-item .card-link:hover {
   border-color: #5372F0;
 }
 
-.card-image {
+.card-list .card-link .card-image {
   width: 100%;
   border-radius: 10px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
-.badge {
+.card-list .card-link .badge {
+  color: #5372F0;
   width: fit-content;
   padding: 8px 16px;
   font-size: 0.95rem;
   border-radius: 50px;
   font-weight: 500;
+  background: #DDE4FF;
   margin: 16px 0 18px;
 }
 
-.badge-designer { color: #B22485; background: #F7DFF5; }
-.badge-developer { color: #5372F0; background: #DDE4FF; }
-.badge-marketer  { color: #B25A2B; background: #FFE3D2; }
-.badge-gamer     { color: #205C20; background: #D6F8D6; }
-.badge-editor    { color: #856404; background: #fff3cd; }
+.card-list .card-link .badge-designer {
+  color: #B22485;
+  background: #F7DFF5;
+}
 
-.card-title {
+.card-list .card-link .badge-marketer {
+  color: #B25A2B;
+  background: #FFE3D2;
+}
+
+.card-list .card-link .badge-gamer {
+  color: #205C20;
+  background: #D6F8D6;
+}
+
+.card-list .card-link .badge-editor {
+  color: #856404;
+  background: #fff3cd;
+}
+
+.card-list .card-link .card-title {
   color: #000;
   font-size: 1.19rem;
   font-weight: 600;
 }
 
-.card-button {
+.card-list .card-link .card-button {
   height: 35px;
   width: 35px;
   color: #5372F0;
@@ -168,34 +104,34 @@ body {
   transition: 0.4s ease;
 }
 
-.card-link:hover .card-button {
+.card-list .card-link:hover .card-button {
   color: #fff;
   background: #5372F0;
 }
 
-/* Swiper control */
-.swiper-pagination-bullet {
+.card-wrapper .swiper-pagination-bullet {
   height: 13px;
   width: 13px;
   opacity: 0.5;
   background: #5372F0;
 }
 
-.swiper-pagination-bullet-active {
+.card-wrapper .swiper-pagination-bullet-active {
   opacity: 1;
 }
 
-.swiper-slide-button {
+.card-wrapper .swiper-slide-button {
   color: #5372F0;
   margin-top: -35px;
 }
 
+/* Responsive media query code for small screens */
 @media (max-width: 768px) {
   .card-wrapper {
     margin: 0 10px 25px;
   }
 
-  .swiper-slide-button {
+  .card-wrapper .swiper-slide-button {
     display: none;
   }
 }
