@@ -129,7 +129,6 @@ body {
   margin-top: -35px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .card-wrapper {
     margin: 0 10px 25px;
