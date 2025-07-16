@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="main.css" />
 
     <!-- Google Fonts for Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
   </head>
   <body>
     <!-- Navbar -->
@@ -93,6 +96,14 @@
                 <span class="menu-label">Lật Hình</span>
               </a>
             </li>
+
+            <!-- ✅ Mục mới: Drawing App -->
+            <li class="menu-item">
+              <a href="#" class="menu-link" onclick="loadPage('draw.html')">
+                <span class="material-symbols-rounded">draw</span>
+                <span class="menu-label">Drawing App</span>
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -112,19 +123,26 @@
 
       <!-- Main Content with iframe -->
       <div class="main-content">
-        <iframe id="contentFrame" src="profile.html" frameborder="0" width="100%" height="1200px" style="border-radius: 12px;"></iframe>
+        <iframe
+          id="contentFrame"
+          src="profile.html"
+          frameborder="0"
+          width="100%"
+          height="1200px"
+          style="border-radius: 12px;"
+        ></iframe>
       </div>
     </div>
 
     <!-- Scripts -->
     <script>
       // Toggle sidebar open/close
-      const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
-      const sidebar = document.querySelector('.sidebar');
+      const sidebarToggles = document.querySelectorAll(".sidebar-toggle");
+      const sidebar = document.querySelector(".sidebar");
 
-      sidebarToggles.forEach(btn => {
-        btn.addEventListener('click', () => {
-          sidebar.classList.toggle('collapsed');
+      sidebarToggles.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          sidebar.classList.toggle("collapsed");
         });
       });
 
@@ -133,18 +151,23 @@
         document.getElementById("contentFrame").src = page;
 
         // Highlight the active menu
-        document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
-        const link = [...document.querySelectorAll('.menu-link')].find(l => l.getAttribute('onclick')?.includes(page));
-        if (link) link.parentElement.classList.add('active');
+        document.querySelectorAll(".menu-item").forEach((item) =>
+          item.classList.remove("active")
+        );
+        const link = [...document.querySelectorAll(".menu-link")].find((l) =>
+          l.getAttribute("onclick")?.includes(page)
+        );
+        if (link) link.parentElement.classList.add("active");
       }
 
       // Theme toggle
-      document.querySelector('.theme-toggle').addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
+      document.querySelector(".theme-toggle").addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
       });
     </script>
     <script src="main.js"></script>
     <script src="profile.js"></script>
     <script src="game.js"></script>
+    <script src="draw.js"></script>
   </body>
 </html>
